@@ -8,25 +8,21 @@ void delay()
 
 int main(void)
 {
-	uint32_t *pAHB1ENR = (uint32_t*)(0x40023830);
-	*pAHB1ENR |= 1<<0; //rcc clock to gpioa port
-
+	// RCC and GPIO base addresses
+	uint32_t *rcc_AHB1ENR = (uint32_t*)(0x40023830);//rcc 
 	uint32_t *gpioa_moder=(uint32_t*)(0x40020000);
-	*gpioa_moder|=1<<14;// set as general output mode for port 7
-
 	uint32_t *gpioa_odr =(uint32_t*)(0x40020014);
-	 //set output @port7
+	
+	*rcc_AHB1ENR |= 1<<0;  // Enable clock for GPIOA
+	*gpioa_moder|=1<<14;// Configure PA7 as output (MODER register: bits 14-15)
 
 	while(1)
 	{
-		*gpioa_odr|=(1<<7); // set bit
+		*gpioa_odr|=(1<<7); // Set PA7 high
 		delay();
 
-		*gpioa_odr &= ~(1<<7);// clear bit
+		*gpioa_odr &= ~(1<<7);//Set PA7 LOW
 		delay();
-
 	}
-
 	return 0;
-
 }
