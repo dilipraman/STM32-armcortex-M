@@ -20,22 +20,6 @@ I'm a passionate beginner (a.k.a. "new bee") exploring embedded firmware develop
 
 ---
 
-## 🚀 Project 1: LED Blinking
-
-**Goal:** Blink an LED using GPIO with direct register access.
-
-### 🔍 What I Learned:
-- How to enable **GPIO** using **RCC (Reset and Clock Control)**.
-- Understanding of **RCC registers** and how to enable the clock for GPIO peripherals.
-- Accessing **GPIO registers** using memory mapping.
-- Practical usage of datasheet and reference manual to control the hardware directly.
-- How the **AHB1ENR** and **MODER/ODR** registers work.
-
-### 📂 Code Location:
-Check the `led_blink_gpio_register` folder for the full source code and step-by-step comments.
-
----
-
 ## 📚 References
 - STM32F411RE Datasheet  
 - RM0383 Reference Manual  
